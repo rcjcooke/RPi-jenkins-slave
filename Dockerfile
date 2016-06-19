@@ -9,7 +9,7 @@ RUN echo "deb http://http.debian.net/debian wheezy-backports main" > /etc/apt/so
 RUN sudo apt-get update -qq && sudo apt-get install -y apt-utils \
 													openssh-server \
 													ca-certificates \
-													lxc \
+													docker \
 							&& sudo apt-get -t wheezy-backports install git \
 							&& sudo apt-get clean
 RUN sudo mkdir -p /var/run/sshd
