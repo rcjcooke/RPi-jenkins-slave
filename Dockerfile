@@ -21,7 +21,7 @@ RUN echo "deb http://http.debian.net/debian wheezy-backports main" > /etc/apt/so
 RUN gpg --keyserver pgpkeys.mit.edu --recv-key 8B48AD6246925553 7638D0442B90D010 \
 		&& gpg -a --export 8B48AD6246925553 | sudo apt-key add - \
 		&& gpg -a --export 7638D0442B90D010 | sudo apt-key add -
-RUN sudo apt-get update -qq && sudo apt-get -t wheezy-backports install -y -qq git \
+RUN sudo apt-get update && sudo apt-get -t wheezy-backports install -y git \
 						&& sudo apt-get clean
 RUN sudo apt-get update && sudo apt-get install -y ca-certificates \
 						&& sudo apt-get clean
