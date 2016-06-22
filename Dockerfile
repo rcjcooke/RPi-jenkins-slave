@@ -1,5 +1,5 @@
 FROM manicmonkey/docker-raspbian-jdk8
-MAINTAINER Ray Cooke <rcjcooke@gmail.com>
+MAINTAINER rcjcooke
 
 # TODO Continue here! Run through the whole lot on a fresh docker-raspbian-jdk8 container on the Raspberry Pi to test it and re-write this Dockerfile
 
