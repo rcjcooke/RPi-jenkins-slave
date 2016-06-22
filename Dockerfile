@@ -1,8 +1,11 @@
-FROM hypriot/rpi-java
+FROM manicmonkey/docker-raspbian-jdk8
+MAINTAINER Ray Cooke <rcjcooke@gmail.com>
+
+# TODO Continue here! Run through the whole lot on a fresh docker-raspbian-jdk8 container on the Raspberry Pi to test it and re-write this Dockerfile
 
 # Install everything needed to run the slave and Install the tools needed to make the slave useful (and clean up afterwards to reduce the size of the image)!
 # To allow Jenkins to SSH to the container: apt-utils openssh-server
-# To allow GIT to authenticate: -t wheezy-backports install git
+# To allow Git to authenticate: -t wheezy-backports install git
 # To resolve Git SSL issue: ca-certificates
 RUN echo "deb http://http.debian.net/debian wheezy-backports main" > /etc/apt/sources.list.d/wheezy-backports.list
 RUN sudo apt-get update && sudo apt-get install -y apt-utils \
