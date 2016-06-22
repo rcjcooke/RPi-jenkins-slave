@@ -13,13 +13,13 @@ RUN sudo mkdir -p /var/run/sshd
 RUN sudo adduser --quiet --disabled-password --gecos "" jenkins
 RUN echo "jenkins:jenkins" | sudo chpasswd
 
-# Install the tools needed to make the slave useful 
+# Install the tools needed to make the slave useful
 # To install and allow Git to authenticate: -t wheezy-backports install git
 # To resolve Git SSL issue: ca-certificates
 RUN echo "deb http://http.debian.net/debian wheezy-backports main" > /etc/apt/sources.list.d/wheezy-backports.list
-RUN sudo apt-get update && sudo apt-get -t wheezy-backports install git \
+RUN sudo apt-get update && sudo apt-get -t wheezy-backports install -y git \
 						&& sudo apt-get clean
-RUN sudo apt-get update && sudo apt-get install ca-certificates \
+RUN sudo apt-get update && sudo apt-get install -y ca-certificates \
 						&& sudo apt-get clean
 
 # Install docker in the container for doing docker builds
