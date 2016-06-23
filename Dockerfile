@@ -1,8 +1,6 @@
 FROM manicmonkey/raspbian-jdk8
 MAINTAINER rcjcooke
 
-# TODO Continue here! Run through the whole lot on a fresh docker-raspbian-jdk8 container on the Raspberry Pi to test it and re-write this Dockerfile
-
 # Install everything needed to run the slave (and clean up afterwards to reduce the size of the image)!
 # To allow Jenkins to SSH to the container: apt-utils openssh-server
 RUN sudo apt-get update && sudo apt-get install -y apt-utils \
