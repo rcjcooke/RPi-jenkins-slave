@@ -30,6 +30,8 @@ RUN sudo apt-get install -y apt-transport-https && \
 	wget -q https://packagecloud.io/gpg.key -O - | sudo apt-key add - && \
 	echo 'deb https://packagecloud.io/Hypriot/Schatzkiste/debian/ wheezy main' | sudo tee /etc/apt/sources.list.d/hypriot.list && \
 	sudo apt-get update && sudo apt-get install -y docker-hypriot && sudo apt-get clean
+# Jenkins needs sudo rights to run docker such that it can connect to it's parent's docker engine
+RUN echo "jenkins  ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 # Make sure the slave is accessible and usable
 EXPOSE 22
