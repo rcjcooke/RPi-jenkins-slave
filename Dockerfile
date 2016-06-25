@@ -31,7 +31,14 @@ RUN sudo apt-get install -y apt-transport-https && \
 	echo 'deb https://packagecloud.io/Hypriot/Schatzkiste/debian/ wheezy main' | sudo tee /etc/apt/sources.list.d/hypriot.list && \
 	sudo apt-get update && sudo apt-get install -y docker-hypriot && sudo apt-get clean
 # Jenkins needs sudo rights to run docker such that it can connect to it's parent's docker engine
+# Add the docker group to the container with the same GID as the docker group on the host. This is
+# to ensure that when we add the jenkins user to the group, it gets the same access
+# permissions accessing the daemon socket as the host docker engine.
+# Might be enough just to put it in the "docker" user group
+
 RUN echo "jenkins  ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+RUN sudo groupadd -g 996 docker
+RUN sudo usermod -aG docker jenkins
 
 # Make sure the slave is accessible and usable
 EXPOSE 22
