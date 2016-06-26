@@ -45,10 +45,6 @@ RUN sudo apt-get install -y apt-transport-https && \
 # have to execute docker with the sudo command)
 RUN sudo usermod -aG docker jenkins
 
-# Copy across the Docker Hub credentials file from the host machine so the slave
-# can push to Docker Hub.
-COPY /root/.docker/config.json /root/.docker/config.json
-
 # Make sure the slave is accessible and usable
 EXPOSE 22
 ENTRYPOINT sudo /usr/sbin/sshd -D
