@@ -16,4 +16,3 @@ The jenkins user needs to be added to the docker user group on the host machine 
 
 ## Acknowledgments
 * Thanks to the Hypriot team for the Raspberry Pi Docker build
-* Thanks to Vishal Sahasrabuddhe for his blog on Jenkins slaves for the host configuration.
